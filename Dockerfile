@@ -1,9 +1,10 @@
-FROM eclipse-temurin:8-jre-alpine
+FROM eclipse-temurin:8-jre-noble
 
 ENV 	V=5.16.5	\
 	HAWTIO=1.5.11
 
-RUN apk --no-cache add openssl
+# RUN apk --no-cache add openssl
+RUN apt-get update && apt-get install openssl -y
 
 RUN wget -O apache-activemq-${V}-bin.tar.gz  											\
 	 "http://www.apache.org/dyn/closer.cgi?filename=/activemq/${V}/apache-activemq-${V}-bin.tar.gz&action=download" &&  	\
