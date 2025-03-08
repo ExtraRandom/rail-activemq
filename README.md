@@ -1,3 +1,17 @@
+This is a tweak of [rail-activemq by b0bd](https://github.com/b0bd/rail-activemq) 
+which allows it to run on ARM64 devices such as the raspberry pi (my use case and the reason this exists)
+
+Changes:
+Switch from alpine to ubuntu 
+Switch from apk to apt
+Fixed typo in init.sh
+
+
+[Docker hub page](https://hub.docker.com/r/extrarandom/rail-activemq-arm)
+
+
+
+
 rail-activemq
 =============
 
@@ -24,10 +38,11 @@ The container also supports connecting to both the NRE and Network Rail feeds si
 
 To bridge the TRAIN_MVT_ALL_TOC feed from Network Rail, and expose it locally by STOMP on port 61613:
 ```bash
-docker run -e NETWORKRAIL_USERNAME=<networkrail-username> \
-           -e NETWORKRAIL_PASSWORD=<networkrail-password> \
-           -e NETWORKRAIL_TOPICS=TRAIN_MVT_ALL_TOC        \
-           -p 61613:61613 b0bd/rail-activemq
+docker run --name rail-activemq-arm \
+  -e NETWORKRAIL_USERNAME=<networkrail-username> \
+  -e NETWORKRAIL_PASSWORD=<networkrail-password> \
+  -e NETWORKRAIL_TOPICS=TRAIN_MVT_ALL_TOC        \
+  -p 61613:61613 extrarandom/rail-activemq-arm
 ```
 # National Rail Subscriber
 
