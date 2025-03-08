@@ -2,9 +2,10 @@ This is a tweak of [rail-activemq by b0bd](https://github.com/b0bd/rail-activemq
 which allows it to run on ARM64 devices such as the raspberry pi (my use case and the reason this exists)
 
 Changes:
-Switch from alpine to ubuntu 
-Switch from apk to apt
-Fixed typo in init.sh
+- Switch from alpine to ubuntu 
+- Switch from apk to apt
+- Fixed typo in init.sh
+
 
 
 [Docker hub page](https://hub.docker.com/r/extrarandom/rail-activemq-arm)
